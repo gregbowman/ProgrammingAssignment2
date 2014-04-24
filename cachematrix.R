@@ -6,12 +6,12 @@
 makeCacheMatrix <- function(x = matrix()) {
         i <- NULL
         set <- function(y) {
-                x <<- y
-                i <<- NULL
+                x <<- y                                 ## set the original matrix value
+                i <<- NULL                              ## set the cached inverse to unknown
         }
-        get <- function() x
-        setinv <- function(inverse) i <<- inverse
-        getinv <- function() i
+        get <- function() x                             ## return the original matrix
+        setinv <- function(inverse) i <<- inverse       ## store the argument as the cached inverse
+        getinv <- function() i                          ## return the cached inverse
         list(set = set, get = get,
              setinv = setinv,
              getinv = getinv)
